@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t ahoobing/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run ahoobing/docker-react npm run test -- --coverage
